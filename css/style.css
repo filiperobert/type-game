@@ -1,0 +1,72 @@
+#list-words{
+    font-family: Times New Roman, Times, serif;
+}
+#backgorundList {
+    border: 1px solid;
+    padding: 10px;
+    max-width: 50%;
+    height: 250px;
+    margin-top: 40px;
+    background-color:whitesmoke;
+    position: relative;
+
+}
+
+#segundos{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #3a4077;
+    color: white;
+    font-size: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#header-logo {
+    background-color: blue;
+    border: 2px solid rgb(108, 108, 155);
+    border-radius: 6px;
+    padding: 3px;
+
+}
+
+header {
+    background-color: blueviolet;
+}
+
+
+body {
+    background-image: url("/fundo.jpg");
+    background-repeat: repeat;
+}
+
+#digit  {
+    border-top: 1px solid #575757;
+    height: 50px;
+    border-right: 1px solid #6b7a89;
+    border-bottom: 1px solid #70869b;
+    border-left: 1px solid #525a62;
+    font-size: 2em;
+    line-height: 1em;
+    font-family: Times New Roman, Times, serif;
+    color: #333;
+    margin-left: 200px;
+}
+
+.resultadoDiv {
+    background-color: rgb(60, 0, 77);
+    opacity: 80%;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.resultadoTitle {
+    color: rgb(201, 85, 85);
+
+}
