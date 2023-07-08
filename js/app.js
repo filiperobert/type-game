@@ -13,9 +13,9 @@ class app {
         // inicia o código
         this.randomizarLista()
         this.atualizarLista()
-
                
     }
+
     starDigits(){
         this.actived = true
         let segundos = 60
@@ -38,7 +38,7 @@ class app {
         }
         let letra = element.value
         let palavras = this.listWords
-        console.log(letra[this.actualWord], palavras[0][this.actualWord])
+
         if (letra == " "){
             element.value = ""
         }
@@ -56,9 +56,8 @@ class app {
         // reescreve a primeira palavra do texto sem a primeira letra (a que foi escrita já) na lista palavras
         this.actualWord += 1
         this.atualizarGreenOrNot(this.listWords[0], true)
-        // console.log(this.actualWord, palavras[0].length)
+
         if (this.actualWord == palavras[0].length){
-            console.log("Teste")
             this.correctedWorks++
             element.value = ""
             this.actualWord = 0
@@ -90,14 +89,14 @@ class app {
     atualizarGreenOrNot(palavras, correct = false) {
         this.listQuery.innerHTML = "";
         if (correct) {
-            console.log('Executou em cima')
+
             this.listQuery.innerHTML = `<span style="background-color: yellowgreen;">${this.letrinhaVerdinha(palavras)}</span>`;
             for (var i = 0; i < palavras.length; i++) {
                 if (i >= this.actualWord) {
                     this.listQuery.innerHTML += `${palavras[i]}`
                 }
             }
-            console.log('Executou segunda camada em cima')
+
             this.listWords.forEach(palavra => {
                 if (palavra != palavras)
                     this.listQuery.innerHTML += ` ${palavra}`
@@ -107,46 +106,23 @@ class app {
 
     letrinhaVerdinha(palavras){
         let frase = ""
-        console.log('Executou aqui')
-        console.log(this.actualWord)
         for(var i = 0; i != this.actualWord; i++){
             frase += palavras[i]
-            console.log('frase')
-            console.log(frase)
         }
         return frase
     }
     
-    // rpega uma palavra aleatoria da lista completa atráves do número random.
+    // pega uma palavra aleatoria da lista completa atráves do número random.
     randomizarLista(){
-        console.log(this.listWordscomplete.length)
         for (var i = 0; i < 50;){
-            let randomNumber = this.randomiziii(this.listWordscomplete)
+            const randomNumber = Math.floor(Math.random() * this.listWordscomplete.length);
             if (!this.listWords.includes(this.listWordscomplete[randomNumber -1])){
                 this.listWords.push(this.listWordscomplete[randomNumber -1])
                 i++
             }
         }
     }
-    // random número (temporario)
-    randomiziii(list){
-        let randomNumber = list.length + 1
-        let randomNumber2
 
-        while(randomNumber > list.length || randomNumber == 0){
-            randomNumber = Math.round(Math.random() * 100)
-            randomNumber2 = Math.round(Math.random() * 100)
-            if (randomNumber2 < 50 || randomNumber > 80){
-                randomNumber += randomNumber2
-            }
-        }
-        return randomNumber
-    }
-
-    getResulted(){
-        return document.querySelectorAll("div[class='resultadoDiv']").length
-
-    }
     gerenatedDivResulted(){
         let divPai = document.querySelector("div[name='result']")
         let div = document.createElement("div")
@@ -155,7 +131,7 @@ class app {
         title.classList.add("resultadoTitle")
         div.classList.add("resultadoDiv")
         title.style.display = "inline-block";
-        title.innerText = `Resultado ${this.getResulted() + 1}°`
+        title.innerText = `Resultado ${document.querySelectorAll("div[class='resultadoDiv']").length + 1}°`
 
 
         // Resultado informações
@@ -166,7 +142,6 @@ class app {
         div.appendChild(resultadoTExto)
         divPai.appendChild(div)
     
-        console.log(this.getResulted() % 3)
         if (this.getResulted() % 4 == 0){
             divPai.appendChild(document.createElement('br'))
         }
