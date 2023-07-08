@@ -8,7 +8,11 @@
     height: 250px;
     margin-top: 40px;
     background-color:whitesmoke;
-    position: relative;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #009AD5;
+    top: 5%;
+    left: 25%;
 
 }
 
@@ -25,26 +29,28 @@
 }
 
 #header-logo {
-    background-color: blue;
-    border: 2px solid rgb(108, 108, 155);
-    border-radius: 6px;
-    padding: 3px;
+    max-width: 100px;
 
 }
 
 header {
     background-color: blueviolet;
+    padding: 0;
+    margin: 0;
 }
 
 
 body {
     background-image: url("/fundo.jpg");
-    background-repeat: repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 #digit  {
     border-top: 1px solid #575757;
     height: 50px;
+    width: 51%;
     border-right: 1px solid #6b7a89;
     border-bottom: 1px solid #70869b;
     border-left: 1px solid #525a62;
@@ -53,6 +59,9 @@ body {
     font-family: Times New Roman, Times, serif;
     color: #333;
     margin-left: 200px;
+    position: absolute;
+    top: 45%;
+    left: 13.5%;
 }
 
 .resultadoDiv {

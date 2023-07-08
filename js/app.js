@@ -26,6 +26,7 @@ class app {
                 clearInterval(intervalId)
                 this.gerenatedDivResulted()
                 this.startApp()
+                document.getElementById("segundos").innerText = "1:00"
                 alert("Fim de jogo !")
             }
         }, 1000)
@@ -63,20 +64,10 @@ class app {
             this.actualWord = 0
             this.listWords.shift()
             this.points += 1
-            this.listWords.push(this.listWordscomplete[this.randomiziii(this.listWordscomplete )-1])
+            this.listWords.push(this.listWordscomplete[Math.floor(Math.random() * this.listWordscomplete.length)])
             this.atualizarLista() 
         }
 
-    }
-    // reescreve a palavra sem a primeira letra e retorna
-    reescrever(atualPalavra){
-        let palavra = ""
-        for (var i = 0; i < atualPalavra.length; i++){
-            if (i != 0){
-                palavra += atualPalavra[i]
-            }
-        }
-        return palavra
     }
     // adiciona as palavras da listaWords no HTML
     atualizarLista(){
@@ -142,7 +133,7 @@ class app {
         div.appendChild(resultadoTExto)
         divPai.appendChild(div)
     
-        if (this.getResulted() % 4 == 0){
+        if (document.querySelectorAll("div[class='resultadoDiv']").length + 1 % 4 == 0){
             divPai.appendChild(document.createElement('br'))
         }
     }
