@@ -13,23 +13,24 @@ class app {
         // inicia o código
         this.randomizarLista()
         this.atualizarLista()
-               
     }
 
     starDigits(){
+        const self = this
+        function stopDigits(){
+            clearInterval(intervalId)
+            self.gerenatedDivResulted()
+            self.startApp()
+            document.getElementById("segundos").innerText = "1:00"
+            alert("Fim de jogo !")
+
+        }
         this.actived = true
-        let segundos = 60
+        let segundos = 60;
         let intervalId = setInterval(() => {
-            segundos--
-            document.getElementById("segundos").innerText = `0:${segundos}`
-            if(segundos == 0) {
-                clearInterval(intervalId)
-                this.gerenatedDivResulted()
-                this.startApp()
-                document.getElementById("segundos").innerText = "1:00"
-                alert("Fim de jogo !")
-            }
-        }, 1000)
+            document.getElementById("segundos").innerText = `0:${--segundos}`;
+            if (segundos == 0) stopDigits();
+        }, 1000);        
 
     }
 
@@ -121,7 +122,7 @@ class app {
         let title = document.createElement("h1")
         title.classList.add("resultadoTitle")
         div.classList.add("resultadoDiv")
-        title.style.display = "inline-block";
+        title.style.display = "block";
         title.innerText = `Resultado ${document.querySelectorAll("div[class='resultadoDiv']").length + 1}°`
 
 
@@ -133,8 +134,5 @@ class app {
         div.appendChild(resultadoTExto)
         divPai.appendChild(div)
     
-        if (document.querySelectorAll("div[class='resultadoDiv']").length + 1 % 4 == 0){
-            divPai.appendChild(document.createElement('br'))
-        }
     }
 }
